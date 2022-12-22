@@ -1,0 +1,493 @@
+
+<?php get_header(); ?>
+
+      <main>
+        <section id="top" class="home">
+          <div class="mask initial-animation">
+            <div class="top_kv contain-no-repeat"></div>
+          </div>
+          <h2 class="studio bodoni">studio</h2>
+          <h2 class="photo_park bodoni--bold">PHOTO PARK</h2>
+          <p class="kv_text_left">
+            ART×CREATIVE<br />
+            more freely,<br />
+            be more true
+          </p>
+          <p class="kv_text_right">byBest-Anniversary</p>
+          <p class="kv_text_center yonaga">
+            もっと自由に<br />もっと自分らしく
+          </p>
+        </section>
+
+        <?php if ( !is_page(array(1100,2710)) ) : ?>
+      <section id="campaign" class="mt-small js-fadeIn">
+          <h2 class="bodoni">CAMPAIGN</h2>
+          <h3 class="yonaga">フェア・キャンペーン</h3>
+          <ul class="fair-ul">
+              <?php
+      $args = array(
+      'post_type' => 'fair_campaign',// 投稿タイプを指定
+      'posts_per_page' => 4,// 表示する記事数
+      );
+      $news_query = new WP_Query( $args );
+      if ( $news_query->have_posts() ): 
+      while ( $news_query->have_posts() ): 
+      $news_query->the_post(); 
+      ?>
+
+                <?php if( get_field('バナー') ): ?>
+                  <li class="fair-li js-fadeIn"><a href="<?php the_field('リンク'); ?>"><img src="<?php the_field('バナー'); ?>" /></a></li>
+
+                  <?php endif; ?>
+                                  
+                  <?php endwhile;
+                  endif;
+                  wp_reset_postdata();
+                  ?>
+              
+            </ul>
+        </section>
+      <?php endif; ?>
+
+        <section id="photos" class="js-fadeIn mt-small">
+          <div class="flex-between">
+            <div class="photo1 contain-no-repeat"></div>
+            <div class="photo2 contain-no-repeat"></div>
+          </div>
+          <div class="downer_row flex-between">
+            <div class="photo3 contain-no-repeat"></div>
+            <div class="photo4 contain-no-repeat"></div>
+          </div>
+          <p class="photos_text yonaga">
+            今、必要なのは、<br />
+            自分らしさ・美しさ・楽しさの実現
+          </p>
+        </section>
+
+        <section id="studio" class="js-fadeIn">
+          <h2 class="studio_title bodoni">STUDIO</h2>
+          <div class="studio_bg contain-no-repeat"></div>
+          <div class="studio_photos flex-between">
+            <div class="photo1 contain-no-repeat"></div>
+            <div class="photo2 contain-no-repeat"></div>
+          </div>
+          <div class="studio_shoot js-fadeIn">
+            <h3 class="studio_shoot_title yonaga">
+              スタジオ撮影
+              <div class="studio_shoot_title_border"></div>
+            </h3>
+            <div class="studio_shoot_text yonaga">
+              <p>
+                日常と非日常世界の境界を連続的なものに変え、<br />
+                大切な人との今と未来を繋ぐ新しい思い出を<br />
+                創り上げるクリエイティブスタジオ。
+              </p>
+              <p class="studio_shoot_text_bottom">
+                これまでにない新しい「時間」と「空間」で、<br />
+                特別な自分との出会いを<br />
+                ウエディングのプロフェッショナルが<br />
+                プロデュースします。
+              </p>
+            </div>
+            <div class="studio_photo--steep contain-no-repeat"></div>
+            <div class="studio_shoot_subtitle">
+              <h4 class="bodoni">ART × CREATIVE</h4>
+              <p>more freely, be more true.</p>
+              <p>by Best-Anniversary</p>
+            </div>
+
+            <div >
+              <ul id="loopSlide">
+              <li><img
+                  src="<?php bloginfo('template_directory'); ?>/asset/image/studio/photo3.webp"
+                  alt="photographer"
+                /></li>
+                <li><img
+                  src="<?php bloginfo('template_directory'); ?>/asset/image/studio/photo4.webp"
+                  alt="photographer"
+                /></li>
+                <li><img
+                  src="<?php bloginfo('template_directory'); ?>/asset/image/studio/photo5.webp"
+                  alt="photographer"
+                /></li>
+                <li><img
+                  src="<?php bloginfo('template_directory'); ?>/asset/image/studio/photo6.webp"
+                  alt="photographer"
+                /></li>
+                <li><img
+                  src="<?php bloginfo('template_directory'); ?>/asset/image/studio/photo7.webp"
+                  alt="photographer"
+                /></li>
+                <li><img
+                  src="<?php bloginfo('template_directory'); ?>/asset/image/studio/photo8.webp"
+                  alt="photographer"
+                /></li>
+                <li><img
+                  src="<?php bloginfo('template_directory'); ?>/asset/image/studio/photo9.webp"
+                  alt="photographer"
+                /></li>
+                <li><img
+                  src="<?php bloginfo('template_directory'); ?>/asset/image/studio/photo10.webp"
+                  alt="photographer"
+                /></li>
+                <ul>
+          </div>
+        </section>
+
+        <section id="point-one" class="js-fadeIn">
+          <div class="title_wrapper">
+            <h2 class="bold-title julius">01</h2>
+            <p>point</p>
+            <div class="border"></div>
+            <!-- <div class="photo1 contain-no-repeat"></div>
+            <div class="photo2 contain-no-repeat"></div>
+            <div class="photo3 contain-no-repeat"></div>
+            <div
+              class="photo4 contain-no-repeat luxy-el"
+              data-offset="-200"
+              data-speed-y="2.5"
+            ></div> -->
+          </div>
+          <h3 class="title_description title_text yonaga">
+            35のクリエイティブシーンが<br />
+            最大90分撮り放題
+          </h3>
+          <div class="link_btn yonaga">
+              <a href="https://photopla.jp/wedding/studio-photo-park-tokyo/studio/"><p>スタジオについて詳しく見る</p></a>
+            </div>
+          <div class="slide-photobox only-sp">
+            <div class="slide-photo-box">
+            <div class="upper-photos flex-between">
+              <div class="photo5 contain-no-repeat"></div>
+              <div class="photo6 contain-no-repeat"></div>
+            </div>
+            <div class="downer-photos flex-between">
+              <div class="photo7 contain-no-repeat"></div>
+              <div class="photo8 contain-no-repeat"></div>
+            </div>
+            </div>
+          </div>
+          <div class="only-pc">
+            <div class="upper-photos flex-between">
+              <div class="photo5 contain-no-repeat"></div>
+              <div class="photo6 contain-no-repeat"></div>
+            </div>
+            <div class="downer-photos flex-between">
+              <!-- <div class="photo7 contain-no-repeat"></div> -->
+              <div class="photo8 contain-no-repeat"></div>
+            </div>
+          </div>
+          <!-- <div class="link_btn yonaga">
+            <a href="/"><p>フォトギャラリーを見る</p></a>
+          </div> -->
+        </section>
+
+        <section id="point-two" class="js-fadeIn">
+          <div>
+            <div class="title_wrapper">
+              <h2 class="bold-title julius">02</h2>
+              <p>point</p>
+              <div class="border"></div>
+            </div>
+            <h3 class="title_description title_text yonaga">
+              最新の先端技術を駆使し<br />
+              理想を叶えるレタッチ
+            </h3>
+          </div>
+          <div>
+            <div class="photos flex-between yonaga">
+              <div class="photo1 contain-no-repeat"><p>Before</p></div>
+              <div class="photo2 contain-no-repeat"><p>After</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="point-three" class="js-fadeIn">
+          <div class="title_wrapper">
+            <h2 class="bold-title julius">03</h2>
+            <p>point</p>
+            <div class="border"></div>
+            <div class="photo1 contain-no-repeat"></div>
+          </div>
+          <h3 class="title_description title_text yonaga">
+            ウエディングの<br>プロバイヤーがセレクトした<br>100種類以上の衣裳ラインナップ
+          </h3>
+          <div class="photos flex-between">
+            <div class="photo2 contain-no-repeat"></div>
+            <div
+              class="photo3 contain-no-repeat"
+            ></div>
+          </div>
+          <div class="photo4 contain-no-repeat"></div>
+        </section>
+
+        <section id="point-four" class="js-fadeIn">
+          <div>
+            <div class="title_wrapper">
+              <h2 class="bold-title julius">04</h2>
+              <p>point</p>
+              <div class="border"></div>
+            </div>
+            <h3 class="title_description title_text yonaga">
+              衣裳ヘアメイクを含んだ<br />
+              ￥19,800〜の手頃な価格
+            </h3>
+            <div class="link_btn yonaga">
+              <a href="https://photopla.jp/wedding/studio-photo-park-tokyo/plan/"><p>スタジオ撮影はこちら</p></a>
+              <a href="https://photopla.jp/wedding/studio-photo-park-tokyo/location-lp/"><p>ロケーション撮影はこちら</p></a>
+              <a href="https://photopla.jp/wedding/studio-photo-park-tokyo/cathedral-lp/"><p>大聖堂チャペル撮影はこちら</p></a>
+            </div>
+          </div>
+          <div class="photo contain-no-repeat"></div>
+        </section>
+
+        <section id="point-five" class="js-fadeIn">
+          <div class="sp-wrapper">
+            <div>
+              <div class="title_wrapper">
+                <h2 class="bold-title julius">05</h2>
+                <p>point</p>
+                <div class="border"></div>
+              </div>
+              <h3 class="title_description title_text yonaga">
+                本物の美しさを追求した<br />
+                プロの技術を体験
+              </h3>
+            </div>
+            <div class="photos">
+              <div class="photo-item1">
+                
+                <!-- 切り替えたい画像を指定する。1枚目は初期表示画像。 -->
+                <!-- sp画像 -->
+                <img
+                  class="only-sp"
+                  src="<?php bloginfo('template_directory'); ?>/asset/image/05/photo1.webp"
+                  alt="photographer"
+                />
+                <!-- pc画像 -->
+                <img
+                  class="only-pc"
+                  src="<?php bloginfo('template_directory'); ?>/asset/image/05/photo1-pc.webp"
+                  alt="photographer"
+                />
+              </div>
+              <div class="photo-item2">
+                
+                <!-- 切り替えたい画像を指定する。1枚目は初期表示画像。 -->
+                <!-- sp画像 -->
+                <img
+                  class="only-sp"
+                  src="<?php bloginfo('template_directory'); ?>/asset/image/05/photo2.webp"
+                  alt="hair make"
+                />
+                <!-- pc画像 -->
+                <img
+                  class="only-pc"
+                  src="<?php bloginfo('template_directory'); ?>/asset/image/05/photo2-pc.webp"
+                  alt="hair make"
+                />
+              </div>
+              <div class="photo-item3">
+                
+                <!-- 切り替えたい画像を指定する。1枚目は初期表示画像。 -->
+                <!-- sp画像 -->
+                <img
+                  class="only-sp"
+                  src="<?php bloginfo('template_directory'); ?>/asset/image/05/photo3.webp"
+                  alt="photo plan"
+                />
+                <!-- pc画像 -->
+                <img
+                  class="only-pc"
+                  src="<?php bloginfo('template_directory'); ?>/asset/image/05/photo3-pc.webp"
+                  alt="photo plan"
+                />
+              </div>
+              <div class="photo-item4">
+                
+                <!-- 切り替えたい画像を指定する。1枚目は初期表示画像。 -->
+                <!-- sp画像 -->
+                <img
+                  class="only-sp"
+                  src="<?php bloginfo('template_directory'); ?>/asset/image/05/photo4.webp"
+                  alt="producer"
+                />
+                <!-- pc画像 -->
+                <img
+                  class="only-pc"
+                  src="<?php bloginfo('template_directory'); ?>/asset/image/05/photo4-pc.webp"
+                  alt="producer"
+                />
+              </div>
+            </div>
+          </div>
+          
+        </section>
+        <section id="plan_camp" class="mt-small js-fadeIn">
+            <a href="/wedding/studio-photo-park-tokyo/flower-arrange/"><p><img
+                  src="<?php bloginfo('template_directory'); ?>/asset/image/common/flower-arrange_bn.webp"
+                  alt="producer"
+                /></p></a>
+          </section>
+
+        <section id="schedule" class="js-fadeIn">
+          <h2 class="bodoni">RESERVATION</h2>
+        <h3 class="yonaga">ご相談・予約方法</h3>
+          <ul class="list_wrapper yonaga">
+            <li class="item">
+              <h4 class="yonaga">サロン相談</h4>
+              <div class="item-column-wrapper">
+              <div class="item-column">
+                <img src="<?php bloginfo('template_directory'); ?>/asset/image/schedule/1.webp" alt="" />
+                <h5 class="yonaga"><a href="https://reg31.smp.ne.jp/regist/is?SMPFORM=lcle-lfreld-71bd003a3704fa19738f3d960f6fde29" target="_new">じっくりと相談したい方におすすめ</a></h5>
+                <p class="yonaga">
+                  フォトプランナーがお二人のご希望を<br />
+                  丁寧にヒアリングし最適な撮影スタイルや<br />
+                  衣裳、ヘアメイクイメージをご提案いたします。<br />
+                  スタジオご見学のみも可能です！<br />
+                  お気軽にお問い合わせください。
+                </p>
+              </div>
+              <div class="item-column">
+                <div class="item-column row">
+                  <img
+                    src="<?php bloginfo('template_directory'); ?>/asset/image/schedule/2.webp"
+                    alt=""
+                    class="column-image"
+                  />
+                  <p class="yonaga">
+                    実際のスタジオセットをご覧いただきながら撮影イメージのご相談が可能です。
+                  </p>
+                </div>
+                <div class="item-column row reverse">
+                  <img
+                    src="<?php bloginfo('template_directory'); ?>/asset/image/schedule/3.webp"
+                    alt=""
+                    class="column-image"
+                  />
+                  <p class="yonaga">
+                    展示されている衣裳を事前にチェックすることもできるので安心。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <div class="item-wrapper">
+            <li class="item">
+              <h4 class="yonaga">オンライン相談</h4>
+              <div class="item-column">
+                <img src="<?php bloginfo('template_directory'); ?>/asset/image/schedule/4.webp" alt="" />
+                <h5 class="yonaga"><a href="https://reg31.smp.ne.jp/regist/is?SMPFORM=lcle-lfreld-71bd003a3704fa19738f3d960f6fde29" target="_new">ご自宅でらくらくオンライン相談</a></h5>
+                <p class="yonaga">
+                  ご自宅や出先でも相談可能<br />
+                  遠方にお住まいの方やご来館が難しい方にもおすすめ。<br />
+                  スマホでも参加できるので<br />
+                  お気軽にお問い合わせください。
+                </p>
+              </div>
+            </li>
+            <li class="item sp-mt-60">
+              <h4 class="yonaga">撮影予約</h4>
+              <div class="item-column">
+                <img src="<?php bloginfo('template_directory'); ?>/asset/image/schedule/5.webp" alt="" />
+                <h5 class="yonaga"><a href="https://reg31.smp.ne.jp/regist/is?SMPFORM=lcle-lfrela-b01b13a64c0688e14f78e88d9896f777" target="_new">申し込み簡単予約</a></h5>
+                <p class="yonaga">
+                  お急ぎ撮影にも最適<br />
+                  ご相談不要で撮影したい日程を入れるだけ！<br />
+                  メール上で撮影プランやオプションが<br />
+                  決められ簡単にご予約ができます。
+                </p>
+              </div>
+            </li>
+            </div>
+          </ul>
+        </section>
+
+        <section id="promise" class="js-fadeIn">
+          <h2 class="bodoni">PROMISE</h2>
+          <h3 class="yonaga">スタジオでの安心・安全対策</h3>
+          <div class="sp-wrapper">
+            <p class="yonaga">
+              撮影当日もお客様の健康と安全を最優先し、<br />
+              3密回避や施設・スタジオ内の消毒など<br />
+              様々な感染予防対策を実施しています。
+            </p>
+            <div class="icon_wrapper yonaga">
+              <div class="item">
+                <div class="icon1 contain-no-repeat"></div>
+                <p>消毒・換気の徹底</p>
+              </div>
+              <div class="item">
+                <div class="icon2 contain-no-repeat"></div>
+                <p>体調・衛生管理</p>
+              </div>
+              <div class="item">
+                <div class="icon3 contain-no-repeat"></div>
+                <p>密集回避</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="access" class="js-fadeIn">
+          <h2 class="bodoni">ACCESS</h2>
+          <h3 class="yonaga">アクセス</h3>
+          <div class="sp-wrapper">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.3850257075246!2d139.69648241525982!3d35.716748280186096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d4902fab619%3A0x45252f9d63c107b1!2z44CSMTYxLTAwMzMg5p2x5Lqs6YO95paw5a6_5Yy65LiL6JC95ZCI77yU5LiB55uu77yR4oiS77yR!5e0!3m2!1sja!2sjp!4v1649136802005!5m2!1sja!2sjp"
+              width="100%"
+              height="254"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+            <div class="address_wrapper">
+              <address class="yonaga">
+                東京都新宿区下落合4-1-1 BASE TOKYO 1F<br />
+                営業時間：10:00〜19:00（月・火定休日）
+              </address>
+              <div class="logo">
+                <img src="<?php bloginfo('template_directory'); ?>/asset/image/header/logo.webp" alt="logo" />
+              </div>
+            </div>
+          </div>
+        </section>
+        <?php get_footer(); ?>
+      </main>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/simplyscroll/2/jquery.simplyscroll.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+  $("#loopSlide").simplyScroll();
+});
+    </script>
+    <style type="text/css">
+      .simply-scroll-container {
+  position: relative;
+}
+.simply-scroll-clip {
+  position: relative;
+  overflow: hidden;
+}
+.simply-scroll-list {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 200px; /* 崩れる場合にはこちらも設定 */
+}
+.simply-scroll-list li {
+  list-style:none !important;
+  float: left;
+  width: 200px;
+  height: 200px;
+  margin: 0;
+  padding: 0;
+}
+.simply-scroll-list li img {
+  display: block;
+}
+    </style>
+  </body>
+</head>

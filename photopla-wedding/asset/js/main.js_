@@ -1,0 +1,181 @@
+// ハンバーガーメニュー開閉
+$(".openbtn").click(function () {
+  $("#nav-menu").toggleClass("open");
+  $(this).toggleClass("active");
+});
+
+// スクロール系アニメーション
+$(function () {
+  $(window).scroll(function () {
+    // 画面内に要素が入ってきたらフェードインさせる
+    const windowHeight = $(window).height();
+    const scroll = $(window).scrollTop();
+
+    $(".js-fadeIn").each(function () {
+      const targetPosition = $(this).offset().top;
+      if (scroll > targetPosition - windowHeight + 100) {
+        $(this).addClass("is-fadeIn");
+      }
+    });
+
+    // 画面内に要素が入ってきたら傾ける
+    const steepElm = $(".studio_photo--steep");
+    steepElm.each(function () {
+      const offset = $(this).offset().top;
+      if (scroll > offset - windowHeight + windowHeight / 5) {
+        $(this).addClass("steep");
+      }
+    });
+  });
+});
+
+// パララックス。luxy.jsというライブラリを使用
+luxy.init();
+
+// ポイント01の4枚の画像切り替え。bgswitcher.jsというライブラリを使用
+// ※切り替える画像サイズは同じにする。(例：画像A→画像Bと切り替える場合、AもBもサイズは300×500で統一する)
+const baseSetting = {
+  loop: true, // 切り替えのループをさせるか
+  shuffle: false, // 切り替えの順番をシャッフルするか
+  effect: "fade", // エフェクトの種類
+  duration: 1000, // エフェクトをかける時間
+  easing: "swing", // エフェクトの始まり方と終わり方
+};
+// photo5
+$("#point-one .photo5").bgSwitcher({
+  images: ["/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo5.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo5-01.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo5-02.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo5-03.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo5-04.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo5-05.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo5-06.png",
+  ], // 切り替える画像の設定
+  interval: 4500, // 切り替えの間隔
+  ...baseSetting,
+});
+// photo6
+$("#point-one .photo6").bgSwitcher({
+  images: ["/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo6.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo6-01.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo6-02.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo6-03.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo6-04.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo6-05.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo6-06.png",
+  ], // 切り替える画像の設定
+  interval: 3800, // 切り替えの間隔
+  ...baseSetting,
+});
+// photo7
+$("#point-one .photo7").bgSwitcher({
+  images: ["/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo7.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo7-01.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo7-02.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo7-03.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo7-04.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo7-05.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo7-06.png",
+  ], // 切り替える画像の設定
+  interval: 3500, // 切り替えの間隔
+  ...baseSetting,
+});
+// photo8
+$("#point-one .photo8").bgSwitcher({
+  images: ["/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo8.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo8-01.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo8-02.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo8-03.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo8-04.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo8-05.png",
+  "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo8-06.png",
+  ], // 切り替える画像の設定
+  interval: 4100, // 切り替えの間隔
+  ...baseSetting,
+});
+
+// ポイント05の画像切替。ポイント05に画像2枚目以降を追加したら、コメントアウトを外す。
+// 1枚目の画像
+// (function () {
+//   // 設定
+//   const interval = 4000; // 切り替わりの間隔
+//   const fade_speed = 1000; // フェード処理の早さ
+
+//   $("#point-five .photos .photo-item1 img").hide();
+//   $("#point-five .photos .photo-item1 img:first").addClass("active").show();
+
+//   const changeImage = function () {
+//     var $active = $("#point-five .photos .photo-item1 img.active");
+//     var $next = $active.next("img").length
+//       ? $active.next("img")
+//       : $("#point-five .photos .photo-item1 img:first");
+
+//     $active.fadeOut(fade_speed).removeClass("active");
+//     $next.fadeIn(fade_speed).addClass("active");
+//   };
+
+//   setInterval(changeImage, interval);
+// })();
+// // 2枚目の画像
+// (function () {
+//   // 設定
+//   const interval = 4000; // 切り替わりの間隔
+//   const fade_speed = 1000; // フェード処理の早さ
+
+//   $("#point-five .photos .photo-item2 img").hide();
+//   $("#point-five .photos .photo-item2 img:first").addClass("active").show();
+
+//   const changeImage = function () {
+//     var $active = $("#point-five .photos .photo-item2 img.active");
+//     var $next = $active.next("img").length
+//       ? $active.next("img")
+//       : $("#point-five .photos .photo-item2 img:first");
+
+//     $active.fadeOut(fade_speed).removeClass("active");
+//     $next.fadeIn(fade_speed).addClass("active");
+//   };
+
+//   setInterval(changeImage, interval);
+// })();
+// // 3枚目の画像
+// (function () {
+//   // 設定
+//   const interval = 4000; // 切り替わりの間隔
+//   const fade_speed = 1000; // フェード処理の早さ
+
+//   $("#point-five .photos .photo-item3 img").hide();
+//   $("#point-five .photos .photo-item3 img:first").addClass("active").show();
+
+//   const changeImage = function () {
+//     var $active = $("#point-five .photos .photo-item3 img.active");
+//     var $next = $active.next("img").length
+//       ? $active.next("img")
+//       : $("#point-five .photos .photo-item3 img:first");
+
+//     $active.fadeOut(fade_speed).removeClass("active");
+//     $next.fadeIn(fade_speed).addClass("active");
+//   };
+
+//   setInterval(changeImage, interval);
+// })();
+// // 4枚目の画像
+// (function () {
+//   // 設定
+//   const interval = 4000; // 切り替わりの間隔
+//   const fade_speed = 1000; // フェード処理の早さ
+
+//   $("#point-five .photos .photo-item4 img").hide();
+//   $("#point-five .photos .photo-item4 img:first").addClass("active").show();
+
+//   const changeImage = function () {
+//     var $active = $("#point-five .photos .photo-item4 img.active");
+//     var $next = $active.next("img").length
+//       ? $active.next("img")
+//       : $("#point-five .photos .photo-item4 img:first");
+
+//     $active.fadeOut(fade_speed).removeClass("active");
+//     $next.fadeIn(fade_speed).addClass("active");
+//   };
+
+//   setInterval(changeImage, interval);
+// })();

@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+	<meta charset="UTF-8">
+	<title><?php bzb_title(); ?></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+<?php wp_head(); ?>
+
+<?php echo get_option('analytics_tracking_code');?>
+<?php echo get_option('webmaster_tool');?>
+<link rel="icon" href="https://photopla.jp/wedding/studio-photo-park-tokyo/favicon.ico">
+    <script defer="defer" src="/wedding/studio-photo-park-tokyo/asset/js/index.bundle.js"></script>
+    <link href="/wedding/studio-photo-park-tokyo/asset/css/index.bundle.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/wedding/studio-photo-park-tokyo/asset/css/lightcase.css">
+    <script type="text/javascript" src="/wedding/studio-photo-park-tokyo/asset/js/lightcase.js"></script>
+    <script src="https://cdn.getlocalmeasure.com/embed/widgets.js" type="text/javascript" async></script>
+
+    <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/lib/css/default.css">
+<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/lib/css/default.date.css">
+<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/lib/css/default.time.css">
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="<?php bloginfo('template_directory'); ?>/lib/js/picker.js"></script>
+<script src="<?php bloginfo('template_directory'); ?>/lib/js/picker.date.js"></script>
+<script src="<?php bloginfo('template_directory'); ?>/lib/js/picker.time.js"></script>
+<script src="<?php bloginfo('template_directory'); ?>/lib/js/legacy.js"></script>
+<!-- 日本語化対応 -->
+<script src="<?php bloginfo('template_directory'); ?>/lib/js/ja_JP.js"></script>
+
+<script>
+$(function(){
+//デートピッカー用スクリプト
+$("#datepicker").pickadate({
+format: "yyyy年mm月dd日",
+min: 1,
+max: 31,
+disable: [2,3] //除外する曜日を指定
+});
+    });
+    </script>
+	
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W9DRTCG');</script>
+<!-- End Google Tag Manager -->
+</head>
+
+<body id="#top" <?php body_class();?> itemschope="itemscope" itemtype="http://schema.org/WebPage">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9DRTCG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->

@@ -1,0 +1,421 @@
+<?php
+get_header(); ?>
+    <section id="section-top">
+        
+          <div id="slider">
+          <!--/slider--></div>
+          <p class="toparealogo"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/toparea-logo.png"></p>
+          <a href="" class="topscroll">Scroll</a>
+    </section>
+    <main>
+      <section id="intro">
+        <div class="inner">
+          <p class="intro-txt off">もっと自由に<br>もっと自分らしく</p>
+          <div class="intro-movie">
+            <div class="intro-head2 off">
+              <h2><img src="/wedding/studio-photo-park-tokyo/asset/img/top/intro-catch.png"></h2>
+              <p class="intro-txt2 off">今、必要なのは、<br>自分らしさ・美しさ・楽しさの実現</p>
+            </div>
+            <video class="intro-movie off" src="/wedding/studio-photo-park-tokyo/mov/pv.mp4" controls muted autoplay playsinline loop></video>
+          </div>
+          <p class="intro-square"></p>
+        </div>
+      </section>
+
+      <section id="fair-campaign">
+        <div class="inner">
+            <dl class="head2-dl off">
+              <dt class="head2-dt"><h2><img src="/wedding/studio-photo-park-tokyo/asset/img/top/fair-campaign-ttl.png"></h2></dt>
+              <dd class="head2-dd">フェア／キャンペーン</dd>
+            </dl>
+
+            <ul class="fair-ul">
+              <?php
+$args = array(
+  'post_type' => 'fair_campaign',// 投稿タイプを指定
+  'posts_per_page' => 4,// 表示する記事数
+);
+$news_query = new WP_Query( $args );
+if ( $news_query->have_posts() ): 
+  while ( $news_query->have_posts() ): 
+    $news_query->the_post(); 
+?>
+
+                 <?php if( get_field('バナー') ): ?>
+                  <li class="fair-li off"><a href="<?php the_field('リンク'); ?>"><img src="<?php the_field('バナー'); ?>" /></a></li>
+
+                  <?php endif; ?>
+                                   
+                  <?php endwhile;
+                  endif;
+                  wp_reset_postdata();
+                  ?>
+              
+            </ul>
+        </div>
+      </section>
+
+      <section id="photoshooting">
+        <div class="inner">
+        <dl class="head2-dl off">
+          <dt class="head2-dt"><h2><img src="/wedding/studio-photo-park-tokyo/asset/img/top/photoshooting-ttl.png"></h2></dt>
+          <dd class="head2-dd">撮影</dd>
+        </dl>
+        <div class="photo-box">
+          <h3 class="off">スタジオ撮影</h3>
+          <div class="shooting-info off">
+            <div class="swiper-container slider1">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/photoshooting-img01.jpg"></div>
+                    <div class="swiper-slide"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/photoshooting-img02.jpg"></div>
+                    <div class="swiper-slide"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/photoshooting-img03.jpg"></div>
+                    <div class="swiper-slide"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/photoshooting-img04.jpg"></div>
+                    <div class="swiper-slide"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/photoshooting-img05.jpg"></div>
+                </div>
+                 <div class="swiper-pagination"></div>
+                <!--<div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div> -->
+            </div>
+            <p class="shooting-info-txt">
+              日常と非日常世界の境界を連続的なものに変え、大切な人との今と未来を繋ぐ新しい思い出を創り上げるクリエイティブスタジオ。これまでにない新しい「時間」と「空間」で、特別な自分との出会いをウエディングのプロフェッショナルがプロデュースします。
+            </p>
+          </div>
+          <!-- スタジオ撮影 -->
+          <ul class="shooting-point-box off">
+            <li class="shooting-point-box-li">
+              <p class="shooting-point-box-pointnum"><span>POINT 01</span></p>
+              <h4 class="shooting-point-box-head4">35のクリエイティブシーン</h4>
+              <p class="shooting-point-box-txt">ウェディングのプロフェショナルが手掛けた空間で圧倒的な没入感を味わいながら、まるでテーマパークにいるような体験型の撮影がかないます。</p>
+              <!-- <a href="" class="shooting-point-box-morebt">more　▼</a> -->
+            </li>
+            <li class="shooting-point-box-li">
+              <p class="shooting-point-box-pointnum"><span>POINT 02</span></p>
+              <h4 class="shooting-point-box-head4">プロフェショナル・ワンチーム</h4>
+              <p class="shooting-point-box-txt">フォトグラファー・ヘアメイク・フォトプランナー・空間ディレクター が全てウエディング実績のあるプロ。ワンチームでお二人史上一番の輝 きを創り上げます。</p>
+            </li>
+            <li class="shooting-point-box-li">
+              <p class="shooting-point-box-pointnum"><span>POINT 03</span></p>
+              <h4 class="shooting-point-box-head4">国内外の有名インポートドレス多数</h4>
+              <p class="shooting-point-box-txt">自社衣装店を持つベスト‐アニバーサリーだから叶う、フォトウエディ
+              ングのために厳選した特別なラインナップが新しい思いで作りを美しく
+              演出致します。
+              </p>
+            </li>
+          </ul>
+        </div>
+         <!-- 屋外撮影 -->
+        <div class="photo-box">
+          <h3 class="off">ロケーション撮影</h3>
+          <div class="shooting-info off">
+            <div class="swiper-container slider1">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/photoshooting-img06.jpg"></div>
+                    <div class="swiper-slide"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/photoshooting-img07.jpg"></div>
+                    <div class="swiper-slide"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/photoshooting-img08.jpg"></div>
+                    <div class="swiper-slide"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/photoshooting-img09.jpg"></div>
+                    <div class="swiper-slide"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/photoshooting-img10.jpg"></div>
+                </div>
+<div class="swiper-pagination"></div>
+            </div>
+            <p class="shooting-info-txt">
+              お二人が出会った想い出の場所、憧れだった場所、過ごしてきた時間、これから創る未来。おふたりが一緒ならそれがどこであっても、その場所は最高のフォトウェディングスポットに。プロのカメラマンがどんな場所でも一瞬を逃さず撮影します。
+            </p>
+          </div>
+
+          <ul class="shooting-point-box off">
+            <li class="shooting-point-box-li">
+              <p class="shooting-point-box-pointnum"><span>POINT 01</span></p>
+              <h4 class="shooting-point-box-head4">選べる人気のロケーション</h4>
+              <p class="shooting-point-box-txt">人気の東京駅や庭園などのロケーション先はもちろん、おふたりのご希
+              望に応じてオーダーメイドでご案内いたします。想い出の場所などお気
+              軽にお問い合わせください。</p>
+              <!-- <a href="" class="shooting-point-box-morebt">more　▼</a> -->
+            </li>
+            <li class="shooting-point-box-li">
+              <p class="shooting-point-box-pointnum"><span>POINT 02</span></p>
+              <h4 class="shooting-point-box-head4">屋外でも安心の撮影フォロー</h4>
+              <p class="shooting-point-box-txt">
+撮影経験豊富なフォトグラファーとヘアメイクがおふたりのご移動から 撮影が結ぶまで、ここで過ごす時間が想い出となるようにフルサポート。 安心して撮影を楽しむことができます。</p>
+            </li>
+            <li class="shooting-point-box-li">
+              <p class="shooting-point-box-pointnum"><span>POINT 03</span></p>
+              <h4 class="shooting-point-box-head4">こだわりの衣裳・ドレス</h4>
+              <p class="shooting-point-box-txt">自社衣装店を持つベスト‐アニバーサリーだから叶う、フォトウエディ
+ングのために厳選した特別なラインナップが新しい思いで作りを美しく
+演出致します。</p>
+            </li>
+          </ul>
+        </div>
+
+         <!-- 大聖堂撮影 -->
+        <div class="photo-box">
+          <h3 class="off">大聖堂チャペル撮影</h3>
+          <div class="shooting-info off">
+            <div class="swiper-container slider1">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/photoshooting-img11.jpg"></div>
+                    <div class="swiper-slide"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/photoshooting-img12.jpg"></div>
+                    <div class="swiper-slide"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/photoshooting-img13.jpg"></div>
+                    <div class="swiper-slide"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/photoshooting-img14.jpg"></div>
+                    <div class="swiper-slide"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/photoshooting-img15.jpg"></div>
+                </div>
+                            <div class="swiper-pagination"></div>
+            </div>
+            <p class="shooting-info-txt">
+              洗練されたブランドドレスに身を包み、荘厳なステンドグラスの大聖堂で神聖な空気を感じながらの撮影はまるで映画のワンシーンの様。ロマンチックな雰囲気漂うナイトプランもおすすめ。永遠を誓いながら運命のフォトウェディングを。
+            </p>
+          </div>
+
+          <ul class="shooting-point-box off">
+            <li class="shooting-point-box-li">
+              <p class="shooting-point-box-pointnum"><span>POINT 01</span></p>
+              <h4 class="shooting-point-box-head4">厳かな光に包まれる大聖堂</h4>
+              <p class="shooting-point-box-txt">ゴシック様式の本格大聖堂の注目ポイントはステンドグラス。
+窓から差し込む柔らかな光が神秘的で、おふたりの魅力をより一層引き
+出します。</p>
+              <!-- <a href="" class="shooting-point-box-morebt">more　▼</a> -->
+            </li>
+            <li class="shooting-point-box-li">
+              <p class="shooting-point-box-pointnum"><span>POINT 02</span></p>
+              <h4 class="shooting-point-box-head4">花嫁が憧れる上質なブランドドレス</h4>
+              <p class="shooting-point-box-txt">国内ブランドドレスだけでなく、海外花嫁にも人気のインポートドレス が揃うのは国内でもTOPクラスの自社衣装店を持つベストーアニバー サリーだからこそ。運命の1着を。</p>
+            </li>
+            <li class="shooting-point-box-li">
+              <p class="shooting-point-box-pointnum"><span>POINT 03</span></p>
+              <h4 class="shooting-point-box-head4">ウエディングのプロがトータルコー
+ディネート</h4>
+              <p class="shooting-point-box-txt">フォトグラファー・ヘアメイク・フォトプランナー・空間ディレクター
+が全てウエディング実績のあるプロ。ワンチームでお二人史上一番の輝
+きを創り上げます。</p>
+            </li>
+          </ul>
+        </div>
+        </div>
+      </section>
+
+      <section id="planlist">
+        <dl class="head2-dl off">
+          <dt class="head2-dt"><h2><img src="/wedding/studio-photo-park-tokyo/asset/img/top/plan-ttl.png"></h2></dt>
+          <dd class="head2-dd">プランリスト</dd>
+        </dl>
+        <ul class="planlist-ul">
+          <li><a href="/plan/#studio"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/plan-liimg01.png"></a></li>
+          <li><a href="/plan/#location"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/plan-liimg02.png"></a></li>
+          <li><a href="/plan/#cathedral"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/plan-liimg03.png"></a></li>
+        </ul>
+      </section>
+
+      <section id="schedule">
+        <dl class="head2-dl off">
+          <dt class="head2-dt"><h2><img src="/wedding/studio-photo-park-tokyo/asset/img/top/schedule-ttl.png"></h2></dt>
+          <dd class="head2-dd">撮影までのスケジュール</dd>
+        </dl>
+        <p class="schedule-txt off">撮影当日を安心してを迎えられるように、<br>ご来店・お打合せからスタッフがお二人を全力でサポートいたします。</p>
+        <div class="schedule-box-out">
+        <div class="schedule-box off">
+          <p class="schedule-box-img"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/schedule-box-img01.png"></p>
+          <dl class="schedule-box-dl">
+            <dt class="schedule-box-dt">じっくりサロン相談</dt>
+            <dd class="schedule-box-dd">じっくりとご相談したいカップル様におすすめ
+実際の撮影スタジオのご見学やお二人のご希望に合わせたプランニングからお見積りまで
+フォトプランナーがご提案いたします。</dd>
+          </dl>
+        </div>
+        <div class="schedule-box off">
+          <p class="schedule-box-img"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/schedule-box-img02.png"></p>
+          <dl class="schedule-box-dl">
+            <dt class="schedule-box-dt">ご自宅でらくらく<br>オンライン相談</dt>
+            <dd class="schedule-box-dd">遠方にお住まい・ご来館が難しいカップル様におすすめ
+ご自宅にいながらオンライン上でスタジオ内のご紹介や撮影内容までサポート</dd>
+          </dl>
+        </div>  
+        <div class="schedule-box off">
+          <p class="schedule-box-img"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/schedule-box-img03.png"></p>
+          <dl class="schedule-box-dl">
+            <dt class="schedule-box-dt">お急ぎ撮影にも最適<br>HPから撮影予約</dt>
+            <dd class="schedule-box-dd">お急ぎ撮影や手軽に撮影したいカップル様におすすめ
+ご来館やオンライン相談なしで撮影日から撮影内容まで決められる手軽なスタイル</dd>
+          </dl>
+        </div>
+        </div>
+      </section>
+
+      <section id="promise">
+        <dl class="head2-dl off">
+          <dt class="head2-dt"><h2><img src="/wedding/studio-photo-park-tokyo/asset/img/top/promise-ttl.png"></h2></dt>
+          <dd class="head2-dd">スタジオでの安心・安全対策</dd>
+        </dl>
+        <p class="promise-txt off">撮影当日もお客様の健康と安全を最優先し、<br>3密回避や施設・スタジオ内の消毒など様々な感染予防対策を実施しています。</p>
+        <p class="promise-img off"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/promise-img.png"></p>
+      </section>
+
+      <section id="access">
+        <dl class="head2-dl off">
+          <dt class="head2-dt"><h2><img src="/wedding/studio-photo-park-tokyo/asset/img/top/access-ttl.png"></h2></dt>
+          <dd class="head2-dd">アクセス</dd>
+        </dl>
+        <ul class="access-ul">
+          <li class="access-li off"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/access-img.png"></li>
+          <li class="access-li ggmap off"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.3848486552515!2d139.69647705046793!3d35.71675263553396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d4902fab619%3A0x45252f9d63c107b1!2z44CSMTYxLTAwMzMg5p2x5Lqs6YO95paw5a6_5Yy65LiL6JC95ZCI77yU5LiB55uu77yR4oiS77yR!5e0!3m2!1sja!2sjp!4v1638805201770!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe></li>
+        </ul>
+        <p class="access-txt">東京都新宿区下落合4-1-1 BASE TOKYO 1F<br>営業時間：10:00〜19:00（月・火定休日）</p>
+        <p class="access-img"><img src="/wedding/studio-photo-park-tokyo/asset/img/top/access-logo.png"></p>
+      </section>
+
+
+    </main>
+            <script type="text/javascript">
+//画像と動画の設定
+var windowwidth = window.innerWidth || document.documentElement.clientWidth || 0;
+    if (windowwidth > 768){
+      var responsiveImage = [//PC用の動画と画像
+        { src: '/wedding/studio-photo-park-tokyo/asset/img/top/pc-top01.jpg',//動画が再生されなかった場合の代替画像
+         // video:{
+         //   src: [//mp4で動画が再生されない時のことを考えて複数の形式の動画を設定
+         //     'https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-5/video/movie.mp4',
+         //     'https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-5/video/movie.webm',
+         //     'https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-5/video/movie.ogv'
+         //   ],
+         //   loop: false,//動画を繰り返さない
+         //   mute: true,//動画の音を鳴らさない
+         // }
+        },
+        {src: '/wedding/studio-photo-park-tokyo/asset/img/top/pc-top02.jpg'},
+        {src: '/wedding/studio-photo-park-tokyo/asset/img/top/pc-top03.jpg'},
+        {src: '/wedding/studio-photo-park-tokyo/asset/img/top/pc-top04.jpg'},
+        {src: '/wedding/studio-photo-park-tokyo/asset/img/top/pc-top05.jpg'},
+        {src: '/wedding/studio-photo-park-tokyo/asset/img/top/pc-top06.jpg'},
+        {src: '/wedding/studio-photo-park-tokyo/asset/img/top/pc-top07.jpg'},
+        {src: '/wedding/studio-photo-park-tokyo/asset/img/top/pc-top08.jpg'}
+      ];
+    } else {
+      var responsiveImage = [//タブレットサイズ（768px）以下用の画像
+        { src: '/wedding/studio-photo-park-tokyo/asset/img/top/sp-top01.png' },
+        { src: '/wedding/studio-photo-park-tokyo/asset/img/top/sp-top02.png' },
+        { src: '/wedding/studio-photo-park-tokyo/asset/img/top/sp-top03.png' },
+        { src: '/wedding/studio-photo-park-tokyo/asset/img/top/sp-top04.jpg' },
+        { src: '/wedding/studio-photo-park-tokyo/asset/img/top/sp-top05.jpg' },
+        { src: '/wedding/studio-photo-park-tokyo/asset/img/top/sp-top06.jpg' },
+        { src: '/wedding/studio-photo-park-tokyo/asset/img/top/sp-top07.jpg' },
+        { src: '/wedding/studio-photo-park-tokyo/asset/img/top/sp-top08.jpg' }
+      ];
+}
+
+//Vegas全体の設定
+jQuery(function($){
+$('#slider').vegas({
+    overlay: true,//画像の上に網線やドットのオーバーレイパターン画像を指定。
+    transition: 'fade2',//切り替わりのアニメーション。http://vegas.jaysalvat.com/documentation/transitions/参照。fade、fade2、slideLeft、slideLeft2、slideRight、slideRight2、slideUp、slideUp2、slideDown、slideDown2、zoomIn、zoomIn2、zoomOut、zoomOut2、swirlLeft、swirlLeft2、swirlRight、swirlRight2、burnburn2、blurblur2、flash、flash2が設定可能。
+    transitionDuration: 1000,//切り替わりのアニメーション時間をミリ秒単位で設定
+    delay: 2000,//スライド間の遅延をミリ秒単位で。
+    animationDuration: 10000,//スライドアニメーション時間をミリ秒単位で設定
+    animation: 'random',//スライドアニメーションの種類。http://vegas.jaysalvat.com/documentation/transitions/参照。kenburns、kenburnsUp、kenburnsDown、kenburnsRight、kenburnsLeft、kenburnsUpLeft、kenburnsUpRight、kenburnsDownLeft、kenburnsDownRight、randomが設定可能。
+    slides: responsiveImage,//画像と動画の設定を読む
+  });
+});
+
+        </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.5.4/vegas.min.js" integrity="sha512-lYAcY5E6LZVeNB3Pky37SxbYKzo8A68MzKFoPg5oTuolhRm36D+YRvkrAQS4JuKsaGYeJ5KA5taMEtpNlPUeOA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<style type="text/css">
+  div.wpcf7-mail-sent-ok {
+border:none !important;
+}
+</style>
+<script type="text/javascript">
+    jQuery(function(){
+        //tabをクリックしたときの動作
+        jQuery('.tab li').click(function(){
+            //クリックしたタブのindexを取得
+            var index = $('.tab li').index(this);
+ 
+            jQuery('.list .inner').hide().removeClass('active');
+            jQuery('.list .inner').eq(index).fadeIn().addClass('active');
+ 
+            jQuery('.tab li').removeClass('active');
+            jQuery(this).addClass('active');
+        });
+ 
+        //ページャーをクリックしたときの動作
+        jQuery('.tab_sub li').click(function(){
+            //クリックしたページャーのindexを取得
+            var index = $('.inner.active .tab_sub li').index(this);
+ 
+            jQuery('.inner.active .tab_sub li').removeClass('active');
+            jQuery(this).addClass('active');
+ 
+            //テーブル操作
+            jQuery('.inner.active div').hide().removeClass('active');
+            jQuery('.inner.active div').eq(index).fadeIn().addClass('active');
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    jQuery(function(){
+        //tabをクリックしたときの動作
+        jQuery('.tab2 li').click(function(){
+            //クリックしたタブのindexを取得
+            var index = $('.tab2 li').index(this);
+ 
+            jQuery('.list2 .inner').hide().removeClass('active');
+            jQuery('.list2 .inner').eq(index).fadeIn().addClass('active');
+ 
+            jQuery('.tab2 li').removeClass('active');
+            jQuery(this).addClass('active');
+        });
+      });
+</script>
+
+<script type="text/javascript">
+    jQuery(function(){
+        //tabをクリックしたときの動作
+        jQuery('.tab3 li').click(function(){
+            //クリックしたタブのindexを取得
+            var index = $('.tab3 li').index(this);
+ 
+            jQuery('.list3 .inner').hide().removeClass('active');
+            jQuery('.list3 .inner').eq(index).fadeIn().addClass('active');
+ 
+            jQuery('.tab3 li').removeClass('active');
+            jQuery(this).addClass('active');
+        });
+      });
+</script>
+
+
+
+<?php
+    $url = $_SERVER['REQUEST_URI'];
+  if(strstr($url,'/consultation-reservation-form/')==true):
+?>
+  <script>
+document.addEventListener( 'wpcf7mailsent', function( event ) {
+    location = '/wedding/studio-photo-park-tokyo/consultation-reservation-form/thanks/';
+}, false );
+</script>
+<?php elseif(strstr($url,'/photo-reservation-form/')==true): ?>
+  <script>
+document.addEventListener( 'wpcf7mailsent', function( event ) {
+    location = '/wedding/studio-photo-park-tokyo/photo-reservation-form/thanks/';
+}, false );
+</script>
+<?php elseif(strstr($url,'/contact/')==true): ?>
+  <script>
+document.addEventListener( 'wpcf7mailsent', function( event ) {
+    location = '/contact/thanks/';
+}, false );
+</script>
+<?php elseif(strstr($url,'/inquiry/')==true): ?>
+  <script>
+document.addEventListener( 'wpcf7mailsent', function( event ) {
+    location = '/wedding/studio-photo-park-tokyo/thanks-inquiry/';
+}, false );
+</script>
+
+<?php else: ?>
+  
+<?php endif; ?>
+<?php get_footer(); ?>
+

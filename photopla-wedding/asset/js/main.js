@@ -1,0 +1,326 @@
+if ($("#top .mask")) {
+  const elm = $("#top .mask")[0];
+  if (elm) {
+    elm.addEventListener("animationend", function () {
+      $(this).css("animation", "");
+      $(this).removeClass("initial-animation").addClass("scale");
+      $(this).children("div").addClass("scale-reverse");
+    });
+    elm.addEventListener("webkitAnimationEnd", function () {
+      $(this).css("animation", "");
+      $(this).removeClass("initial-animation").addClass("scale");
+      $(this).children("div").addClass("scale-reverse");
+    });
+  }
+}
+
+// ハンバーガーメニュー開閉
+$(".openbtn").click(function () {
+  $("#nav-menu").toggleClass("open");
+  $(this).toggleClass("active");
+});
+
+// スクロール系アニメーション
+$(function () {
+  $(window).scroll(function () {
+    // 画面内に要素が入ってきたらフェードインさせる
+    const windowHeight = $(window).height();
+    const scroll = $(window).scrollTop();
+
+    $(".js-fadeIn").each(function () {
+      const targetPosition = $(this).offset().top;
+      if (scroll > targetPosition - windowHeight) {
+        // TODO: ←修正
+        $(this).addClass("is-fadeIn");
+      }
+    });
+
+    // 画面内に要素が入ってきたら傾ける
+    const steepElm = $(".studio_photo--steep");
+    steepElm.each(function () {
+      const offset = $(this).offset().top;
+      if (scroll > offset - windowHeight + windowHeight / 5) {
+        $(this).addClass("steep");
+      }
+    });
+  });
+});
+
+// ポイント01の4枚の画像切り替え。bgswitcher.jsというライブラリを使用
+// ※切り替える画像サイズは同じにする。(例：画像A→画像Bと切り替える場合、AもBもサイズは300×500で統一する)
+// const baseSetting = {
+//   loop: true, // 切り替えのループをさせるか
+//   shuffle: false, // 切り替えの順番をシャッフルするか
+//   effect: "fade", // エフェクトの種類
+//   duration: 1000, // エフェクトをかける時間
+//   easing: "swing", // エフェクトの始まり方と終わり方
+// };
+// // photo5
+// $("#point-one .photo5").bgSwitcher({
+//   images: [
+//     "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo5.webp",
+//     "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo5-01.webp",
+//     "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo5-02.webp",
+//     "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo5-03.webp",
+//     "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo5-04.webp",
+//     "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo5-05.webp",
+//     "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo5-06.webp",
+//   ], // 切り替える画像の設定
+//   interval: 4500, // 切り替えの間隔
+//   ...baseSetting,
+// });
+// // photo6
+// $("#point-one .photo6").bgSwitcher({
+//   images: [
+//     "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo6.webp",
+//     "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo6-01.webp",
+//     "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo6-02.webp",
+//     "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo6-03.webp",
+//     "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo6-04.webp",
+//     "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo6-05.webp",
+//     "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo6-06.webp",
+//   ], // 切り替える画像の設定
+//   interval: 3800, // 切り替えの間隔
+//   ...baseSetting,
+// });
+// // photo7
+// $("#point-one .photo7").bgSwitcher({
+//   images: [], // 切り替える画像の設定
+//   interval: 3500, // 切り替えの間隔
+//   ...baseSetting,
+// });
+// // photo8
+// $("#point-one .photo8").bgSwitcher({
+//   images: [
+//     "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo8.webp",
+//     "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo8-01.webp",
+//     "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo8-02.webp",
+//     "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo8-03.webp",
+//     "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo8-04.webp",
+//     "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo8-05.webp",
+//     "/wedding/studio-photo-park-tokyo/wp-content/themes/photopla-wedding/asset/image/01/photo8-06.webp",
+//   ], // 切り替える画像の設定
+//   interval: 4100, // 切り替えの間隔
+//   ...baseSetting,
+// });
+
+// ポイント05の画像切替。ポイント05に画像2枚目以降を追加したら、コメントアウトを外す。
+// 1枚目の画像
+// (function () {
+//   // 設定
+//   const interval = 4000; // 切り替わりの間隔
+//   const fade_speed = 1000; // フェード処理の早さ
+
+//   $("#point-five .photos .photo-item1 img").hide();
+//   $("#point-five .photos .photo-item1 img:first").addClass("active").show();
+
+//   const changeImage = function () {
+//     var $active = $("#point-five .photos .photo-item1 img.active");
+//     var $next = $active.next("img").length
+//       ? $active.next("img")
+//       : $("#point-five .photos .photo-item1 img:first");
+
+//     $active.fadeOut(fade_speed).removeClass("active");
+//     $next.fadeIn(fade_speed).addClass("active");
+//   };
+
+//   setInterval(changeImage, interval);
+// })();
+// // 2枚目の画像
+// (function () {
+//   // 設定
+//   const interval = 4000; // 切り替わりの間隔
+//   const fade_speed = 1000; // フェード処理の早さ
+
+//   $("#point-five .photos .photo-item2 img").hide();
+//   $("#point-five .photos .photo-item2 img:first").addClass("active").show();
+
+//   const changeImage = function () {
+//     var $active = $("#point-five .photos .photo-item2 img.active");
+//     var $next = $active.next("img").length
+//       ? $active.next("img")
+//       : $("#point-five .photos .photo-item2 img:first");
+
+//     $active.fadeOut(fade_speed).removeClass("active");
+//     $next.fadeIn(fade_speed).addClass("active");
+//   };
+
+//   setInterval(changeImage, interval);
+// })();
+// // 3枚目の画像
+// (function () {
+//   // 設定
+//   const interval = 4000; // 切り替わりの間隔
+//   const fade_speed = 1000; // フェード処理の早さ
+
+//   $("#point-five .photos .photo-item3 img").hide();
+//   $("#point-five .photos .photo-item3 img:first").addClass("active").show();
+
+//   const changeImage = function () {
+//     var $active = $("#point-five .photos .photo-item3 img.active");
+//     var $next = $active.next("img").length
+//       ? $active.next("img")
+//       : $("#point-five .photos .photo-item3 img:first");
+
+//     $active.fadeOut(fade_speed).removeClass("active");
+//     $next.fadeIn(fade_speed).addClass("active");
+//   };
+
+//   setInterval(changeImage, interval);
+// })();
+// // 4枚目の画像
+// (function () {
+//   // 設定
+//   const interval = 4000; // 切り替わりの間隔
+//   const fade_speed = 1000; // フェード処理の早さ
+
+//   $("#point-five .photos .photo-item4 img").hide();
+//   $("#point-five .photos .photo-item4 img:first").addClass("active").show();
+
+//   const changeImage = function () {
+//     var $active = $("#point-five .photos .photo-item4 img.active");
+//     var $next = $active.next("img").length
+//       ? $active.next("img")
+//       : $("#point-five .photos .photo-item4 img:first");
+
+//     $active.fadeOut(fade_speed).removeClass("active");
+//     $next.fadeIn(fade_speed).addClass("active");
+//   };
+
+//   setInterval(changeImage, interval);
+// })();
+
+// TODO: プランページのスワイプ等の挙動を追加
+// Swipeでの画像切替
+const swipeSetting = {
+  slidesPerView: 1.1,
+  initialSlide: 1,
+  spaceBetween: 4,
+  centeredSlides: true,
+  breakpoints: {
+    769: {
+      spaceBetween: 15,
+    },
+  },
+};
+const tabWestern = new Swiper(".tab-content--western", {
+  ...swipeSetting,
+  initialSlide: 0,
+  
+  thumbs: {
+    swiper: {
+      el: ".tab-menu--western",
+      slidesPerView: 4,
+      initialSlide: 0,
+    },
+  },
+});
+const tabJapanese = new Swiper(".tab-content--japanese", {
+  ...swipeSetting,
+  initialSlide: 0,
+
+  thumbs: {
+    swiper: {
+      el: ".tab-menu--japanese",
+      slidesPerView: 4,
+      initialSlide: 0,
+    },
+  },
+});
+
+const cathedralshooting = new Swiper(".cathedralshooting", {
+  slidesPerView: 1.2,
+  centeredSlides: true,
+  // ページネーションが必要なら追加
+  pagination: {
+    el: ".swiper-pagination",
+  },
+  // ナビボタンが必要なら追加
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
+// ページ内リンクのスクロール挙動
+$('#plan .link_wrapper a[href*="#"]').click(function () {
+  const elmHash = $(this).attr("href");
+  const position = $(elmHash).offset().top;
+  $("body,html").animate({ scrollTop: position - 74 }, 500);
+  return;
+});
+
+// TODO: ↓追加
+const tab = new Swiper(".tab-content", {
+  ...swipeSetting,
+  initialSlide: 0,
+  spaceBetween: 8,
+
+  thumbs: {
+    swiper: {
+      el: ".tab-menu",
+      slidesPerView: 4,
+      initialSlide: 0,
+    },
+  },
+});
+// ここまで
+
+// ページ内リンクのスクロール挙動
+$('#plan .link_wrapper a[href*="#"]').click(function () {
+  const elmHash = $(this).attr("href");
+  const position = $(elmHash).offset().top;
+  $("body,html").animate({ scrollTop: position - 74 }, 500);
+  return;
+});
+
+// TODO: 以下全て追加
+// ギャラリーページ
+// ページ内リンクのスクロール挙動
+$('#gallery .link_wrapper a[href*="#"]').click(function () {
+  const elmHash = $(this).attr("href");
+  const position = $(elmHash).offset().top;
+  $("body,html").animate({ scrollTop: position - 74 }, 500);
+  return;
+});
+
+// スワイプ要素
+const swiperFactory = (navigationSelectorId) => {
+  return new Swiper(`#gallery ${navigationSelectorId} .swiper-container`, {
+    centeredSlides: true,
+    spaceBetween: 16,
+    slidesPerView: 1.2,
+
+    navigation: {
+      nextEl: `${navigationSelectorId} .swiper-button-next`,
+      prevEl: `${navigationSelectorId} .swiper-button-prev`,
+    },
+  });
+};
+// 花鳥風月スタジオ
+const galleryKachoSwiper = swiperFactory("#kachofugetsu-studio");
+// ドラマチックスタジオ
+const galleryDramaticSwiper = swiperFactory("#dramatic-studio");
+// ラウンジスタジオ
+const galleryLoungeSwiper = swiperFactory("#lounge-studio");
+// モーションスタジオ
+const galleryMotionSwiper = swiperFactory("#motion-studio");
+// TODO: ↓を追加
+// 以下大阪
+// 花鳥風月スタジオ
+const galleryKachoOsakaSwiper = swiperFactory("#kachofugetsu-studio--osaka");
+// 小径スタジオ
+const galleryKomichiSwiper = swiperFactory("#komichi-studio");
+// ギャラリースタジオ
+const galleryGallerySceneSwiper = swiperFactory("#gallery-studio");
+// ドレスシーンスタジオ
+const galleryDressSwiper = swiperFactory("#dress-studio");
+// モーションスタジオ
+const galleryMotionOsakaSwiper = swiperFactory("#motion-studio--osaka");
+// TODO: ↑ここまで追加
+
+// moreボタンを押すと画像をさらに表示させる
+$("#gallery #photo-gallery .more-button").click(() => {
+  $("#gallery #photo-gallery .last-gallery-wrapper").css("display", "block");
+  $("#gallery #photo-gallery .more-button").css("display", "none");
+});

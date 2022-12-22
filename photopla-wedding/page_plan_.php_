@@ -1,0 +1,267 @@
+<?php
+/**
+ * Template Name: page-plan
+ */
+get_header(); ?>
+
+    <main class="lower-page">
+      <div class="inner">
+      <dl class="head1-dl">
+        <dt class="head1-dt"><h1>Plan</h1></dt>
+        <dd class="head2-dd">プラン一覧</dd>
+      </dl>
+      <section id="campaign-bn">
+        <dl class="head2-dl">
+              <dt class="head2-dt"><h2><img src="/wedding/studio-photo-park-tokyo/asset/img/top/fair-campaign-ttl.png"></h2></dt>
+              <dd class="head2-dd">フェア／キャンペーン</dd>
+        </dl>
+          <ul class="fair-ul">
+              <?php
+$args = array(
+  'post_type' => 'fair_campaign',// 投稿タイプを指定
+  'posts_per_page' => 4,// 表示する記事数
+);
+$news_query = new WP_Query( $args );
+if ( $news_query->have_posts() ): 
+  while ( $news_query->have_posts() ): 
+    $news_query->the_post(); 
+?>
+
+                 <?php if( get_field('バナー') ): ?>
+                  <li class="fair-li"><a href="<?php the_field('リンク'); ?>"><img src="<?php the_field('バナー'); ?>" /></a></li>
+                  <?php endif; ?>
+                                   
+                  <?php endwhile;
+                  endif;
+                  wp_reset_postdata();
+                  ?>
+              
+            </ul>
+      </section>
+      <ul class="shooting-navi">
+        <li class="shooting-list"><a href="#studio">スタジオ</a></li>
+        <li class="shooting-list"><a href="#location">ロケーション</a></li>
+        <li class="shooting-list"><a href="#cathedral">大聖堂</a></li>
+      </ul>
+
+      <section id="studio" class="shooting-box">
+        <dl class="head2-dl">
+              <dt class="head2-dt"><h2><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/plan-studio-ttl.png"></h2></dt>
+              <dd class="head2-dd">スタジオ</dd>
+        </dl>
+        <p class="shooting-txt">日常と非日常世界の境界を連続的なものに変え、大切な人との今と未来を繋ぐ新しい思い出を創りあげるクリエイティブフォトスタジオ。これまでにない新しい「時間」と「空間」で、特別な自分との出会いをウェディングのプロフェッショナルがプロデュースします。
+        </p>
+        <ul class="tab">
+            <li class="active">洋装</li>
+            <li>和装</li>
+        </ul>
+         
+        <div class="list">
+            <div class="inner active">
+                <ul class="tab_sub">
+                    <li class="active">Light Plan</li>
+                    <li>Standard Plan</li>
+                    <li>Premium Plan</li>
+                </ul>
+                <div class="ininner active">
+                  <p class="plan-img"><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/studio-yoso-light-img.jpg"></p>
+                  <p class="plan-planimg"><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/studio-yoso-light-plan.jpg"></p>
+                </div>
+
+                <div class="ininner">
+                  <p class="plan-img"><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/studio-yoso-standard-img.jpg"></p>
+                  <p class="plan-planimg"><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/studio-yoso-standard-plan.jpg"></p>
+                </div>
+
+                <div class="ininner">
+                  <p class="plan-img"><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/studio-yoso-premium-img.jpg"></p>
+                  <p class="plan-planimg"><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/studio-yoso-premium-plan.jpg"></p>
+                </div>
+            </div><!-- .inner end -->
+         
+            <div class="inner">
+                <ul class="tab_sub">
+                    <li class="active">Light Plan</li>
+                    <li>Standard Plan</li>
+                    <li>Premium Plan</li>
+                </ul>
+                <div class="ininner active">
+                  <p class="plan-img"><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/studio-waso-light-img.jpg"></p>
+                  <p class="plan-planimg"><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/studio-waso-light-plan.jpg"></p>
+                </div>
+
+                <div class="ininner">
+                  <p class="plan-img"><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/studio-waso-standard-img.jpg"></p>
+                  <p class="plan-planimg"><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/studio-waso-standard-plan.jpg"></p>
+                </div>
+
+                <div class="ininner">
+                  <p class="plan-img"><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/studio-waso-premium-img.jpg"></p>
+                  <p class="plan-planimg"><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/studio-waso-premium-plan.jpg"></p>
+                </div>
+            </div><!-- .inner end -->
+        </div><!-- .list end -->
+      </section>
+
+
+      <section id="location" class="shooting-box">
+        <dl class="head2-dl">
+              <dt class="head2-dt"><h2><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/plan-location-ttl.png"></h2></dt>
+              <dd class="head2-dd">ロケーション</dd>
+        </dl>
+        <p class="shooting-txt">ナチュラルな表情を引き出すロケーション<br>
+        ふたり一緒ならそれがどこでも<br>
+        My Photo Wedding 
+        </p>
+        <ul class="tab2">
+            <li class="active">洋装</li>
+            <li>和装</li>
+        </ul>
+         
+        <div class="list2">
+            <div class="inner active">
+                <p class="plan-img"><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/location-yoso-img.jpg"></p>
+                  <p class="plan-planimg"><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/location-yoso-planimg.jpg"></p>
+            </div><!-- .inner end -->
+         
+            <div class="inner">
+               <p class="plan-img"><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/location-waso-img.jpg"></p>
+                  <p class="plan-planimg"><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/location-waso-planimg.jpg"></p>
+            </div><!-- .inner end -->
+        </div><!-- .list end -->
+      </section>
+
+      <section id="cathedral" class="shooting-box">
+        <dl class="head2-dl">
+              <dt class="head2-dt"><h2><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/plan-cathedral-ttl.png"></h2></dt>
+              <dd class="head2-dd">大聖堂</dd>
+        </dl>
+        <p class="shooting-txt">洗練されたブランドドレスに身を包み、荘厳なステンドグラスの大聖堂で神聖な空気を感じながら撮影を行います。 ここでしか叶わない映画のようなワンシーンが魅力。大聖堂で永遠を誓いながら撮影する、運命のフォトウエディングを。
+        </p>
+
+        <ul class="tab3">
+            <li class="active">Standard Plan</li>
+            <li>Premium Plan</li>
+            <li>Special Plan</li>
+        </ul>
+         
+        <div class="list3">
+            <div class="inner active">
+                <p class="plan-img"><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/cathedral-satandard-img.jpg"></p>
+                  <p class="plan-planimg"><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/cathedral-satandard-planimg.jpg"></p>
+            </div><!-- .inner end -->
+         
+            <div class="inner">
+               <p class="plan-img"><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/cathedral-premium-img.jpg"></p>
+                  <p class="plan-planimg"><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/cathedral-premium-planimg.jpg"></p>
+            </div><!-- .inner end -->
+
+            <div class="inner">
+               <p class="plan-img"><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/cathedral-special-img.jpg"></p>
+                  <p class="plan-planimg"><img src="/wedding/studio-photo-park-tokyo/asset/img/plan/cathedral-special-planimg.jpg"></p>
+            </div><!-- .inner end -->
+        </div><!-- .list end -->
+
+      </section>
+      </div>
+    </main>
+
+<style type="text/css">
+  div.wpcf7-mail-sent-ok {
+border:none !important;
+}
+</style>
+<script type="text/javascript">
+    jQuery(function(){
+        //tabをクリックしたときの動作
+        jQuery('.tab li').click(function(){
+            //クリックしたタブのindexを取得
+            var index = $('.tab li').index(this);
+ 
+            jQuery('.list .inner').hide().removeClass('active');
+            jQuery('.list .inner').eq(index).fadeIn().addClass('active');
+ 
+            jQuery('.tab li').removeClass('active');
+            jQuery(this).addClass('active');
+        });
+ 
+        //ページャーをクリックしたときの動作
+        jQuery('.tab_sub li').click(function(){
+            //クリックしたページャーのindexを取得
+            var index = $('.inner.active .tab_sub li').index(this);
+ 
+            jQuery('.inner.active .tab_sub li').removeClass('active');
+            jQuery(this).addClass('active');
+ 
+            //テーブル操作
+            jQuery('.inner.active div').hide().removeClass('active');
+            jQuery('.inner.active div').eq(index).fadeIn().addClass('active');
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    jQuery(function(){
+        //tabをクリックしたときの動作
+        jQuery('.tab2 li').click(function(){
+            //クリックしたタブのindexを取得
+            var index = $('.tab2 li').index(this);
+ 
+            jQuery('.list2 .inner').hide().removeClass('active');
+            jQuery('.list2 .inner').eq(index).fadeIn().addClass('active');
+ 
+            jQuery('.tab2 li').removeClass('active');
+            jQuery(this).addClass('active');
+        });
+      });
+</script>
+
+<script type="text/javascript">
+    jQuery(function(){
+        //tabをクリックしたときの動作
+        jQuery('.tab3 li').click(function(){
+            //クリックしたタブのindexを取得
+            var index = $('.tab3 li').index(this);
+ 
+            jQuery('.list3 .inner').hide().removeClass('active');
+            jQuery('.list3 .inner').eq(index).fadeIn().addClass('active');
+ 
+            jQuery('.tab3 li').removeClass('active');
+            jQuery(this).addClass('active');
+        });
+      });
+</script>
+
+<?php
+    $url = $_SERVER['REQUEST_URI'];
+  if(strstr($url,'/consultation-reservation-form/')==true):
+?>
+  <script>
+document.addEventListener( 'wpcf7mailsent', function( event ) {
+    location = '/wedding/studio-photo-park-tokyo/consultation-reservation-form/thanks/';
+}, false );
+</script>
+<?php elseif(strstr($url,'/photo-reservation-form/')==true): ?>
+  <script>
+document.addEventListener( 'wpcf7mailsent', function( event ) {
+    location = '/wedding/studio-photo-park-tokyo/photo-reservation-form/thanks/';
+}, false );
+</script>
+<?php elseif(strstr($url,'/contact/')==true): ?>
+  <script>
+document.addEventListener( 'wpcf7mailsent', function( event ) {
+    location = '/contact/thanks/';
+}, false );
+</script>
+<?php elseif(strstr($url,'/inquiry/')==true): ?>
+  <script>
+document.addEventListener( 'wpcf7mailsent', function( event ) {
+    location = '/wedding/studio-photo-park-tokyo/thanks-inquiry/';
+}, false );
+</script>
+
+<?php else: ?>
+  
+<?php endif; ?>
+<?php get_footer(); ?>
+

@@ -1,0 +1,25 @@
+<?php get_header(); ?>
+
+
+        <header>
+            <h1><a href="/"><img src="/wedding/studio-photopark/asset/img/common/logo-photopark.png" alt="StudioPHOTOPARK"></a></h1>
+        </header>
+        <main>
+               <?php
+      if ( have_posts() ) :
+
+        while ( have_posts() ) : the_post();
+
+        ?>
+
+
+    <?php $cf = get_post_meta($post->ID); ?>
+
+      <section class="post-content" itemprop="text">
+      
+
+        <?php the_content(); ?>
+      </section>
+        </main>
+
+<?php get_footer(); ?>
